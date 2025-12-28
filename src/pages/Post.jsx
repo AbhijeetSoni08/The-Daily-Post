@@ -53,7 +53,7 @@ export default function Post() {
                             <img
                                 src={url+"&mode=admin"}
                                 alt={post.title}
-                                className="rounded-xl w-full max-w-full h-auto max-h-[28rem] object-cover shadow-md border border-gray-200"
+                                className="rounded-xl w-full max-w-full h-auto max-h-112 object-cover shadow-md border border-gray-200"
                             />
                         )}
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-2">

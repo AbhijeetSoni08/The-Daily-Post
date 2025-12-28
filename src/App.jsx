@@ -41,7 +41,7 @@ function App() {
   useEffect(() => {
     authService.getCurrentUser()
     .then((userData) => {
-      if (userData) {
+      if (userData && userData.emailVerification) {
         dispatch(login({userData}))
         dispatch(setPosts(res.rows));
       } else {

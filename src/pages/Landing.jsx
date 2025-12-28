@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-blue-100 via-white to-purple-100">
+    <section className="w-full min-h-screen flex flex-col justify-center items-center bg-linear-to-br from-blue-100 via-white to-purple-100">
       <div className="max-w-2xl text-center p-8 bg-white/80 rounded-3xl shadow-2xl border border-gray-200">
         <h1 className="text-5xl font-extrabold font-serif mb-6 text-gray-900 drop-shadow-lg">
           Welcome to <span className="text-blue-600">The Daily Post</span>
