@@ -24,7 +24,7 @@ class AuthService{
         // Await verification and handle errors
         try {
             const verification = await this.account.createVerification({
-                url: 'http://localhost:5173/verify-email'
+                url: 'http://the-daily-post.netlify.app/verify-email'
             });
             console.log(verification); // Success
         } catch (error) {
