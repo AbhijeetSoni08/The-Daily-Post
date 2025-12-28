@@ -30,7 +30,10 @@ function AppRouter() {
       children: [
         {
             path: "/verify-email",
-            element: <VerifyEmail />,
+            element:
+              <AuthLayout authentication = {true}>
+                <VerifyEmail />
+              </AuthLayout>,
         },
         {
           path: "/",
