@@ -13,6 +13,7 @@ import { setPosts, setError } from './store/postSlice'
 function App() {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
+  
 
 
   useEffect(() => {
@@ -42,6 +43,7 @@ function App() {
     .then((userData) => {
       if (userData) {
         dispatch(login({userData}))
+        dispatch(setPosts(res.rows));
       } else {
         dispatch(logout())
       }
