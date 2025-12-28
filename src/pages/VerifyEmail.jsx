@@ -3,6 +3,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Client, Account } from "appwrite";
 import config from "../config/config.js";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { login } from "../store/authSlice.js";
+import authService from "../appwrite/auth.js";
 
 const client = new Client()
   .setEndpoint(config.appwriteUrl)
@@ -10,9 +13,11 @@ const client = new Client()
 
 const account = new Account(client);
 
+
 export default function VerifyEmail() {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
 
   const [message, setMessage] = useState("Verifying...");
   const [loading, setLoading] = useState(true);
@@ -34,7 +39,12 @@ export default function VerifyEmail() {
         toast.success("Email verified successfully! You can now log in.");
         setMessage("🎉 Email verified successfully!");
         setLoading(false);
-
+          authService.getCurrentUser().then((userData) => {
+            if (userData && userData.emailVerification) {
+              dispatch(login({ userData }) );
+            }
+          })
+        
         setTimeout(() => navigate("/"), 1500);
       })
       .catch(() => {
