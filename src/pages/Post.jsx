@@ -27,7 +27,7 @@ export default function Post() {
     useEffect(() => {
          const fetchPreview = async () => {
             if (post && post.featuredImage) {
-                const previewUrl = await appwriteService.getFilePreview(post.featuredImage);
+                const previewUrl = await appwriteService.getFileView(post.featuredImage);
                 setUrl(previewUrl);
             }
         };
@@ -51,7 +51,7 @@ export default function Post() {
                     <div className="w-full flex flex-col gap-4 mb-6">
                         {url && (
                             <img
-                                src={url+"&mode=admin"}
+                                src={url}
                                 alt={post.title}
                                 className="rounded-xl w-full max-w-full h-auto max-h-112 object-cover shadow-md border border-gray-200"
                             />

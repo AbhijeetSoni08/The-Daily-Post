@@ -9,7 +9,7 @@ function PostCard({$id, title, featuredImage, author, publishedDate, category}) 
     useEffect(() => {
         async function fetchUrl() {
             if (featuredImage) {
-                const result = await appwriteService.getFilePreview(featuredImage);
+                const result = await appwriteService.getFileView(featuredImage);
                 setUrl(result);
             }
         }
@@ -20,7 +20,7 @@ function PostCard({$id, title, featuredImage, author, publishedDate, category}) 
         <div className="border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
             {url && (
                 <img 
-                    src={url+"&mode=admin"}
+                    src={url}
                     alt={title}
                     className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
                 />

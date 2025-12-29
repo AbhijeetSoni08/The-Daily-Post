@@ -47,7 +47,7 @@ function Home() {
   useEffect(() => {
     async function fetchUrl() {
       if(featuredPost && featuredPost.featuredImage) {
-        const previewUrl = await appwriteService.getFilePreview(featuredPost.featuredImage);
+        const previewUrl = await appwriteService.getFileView(featuredPost.featuredImage);
         setUrl(previewUrl);
       }
     }
@@ -67,7 +67,7 @@ function Home() {
               <>
 
                 <img
-                  src={url+"&mode=admin"}
+                  src={url}
                   alt={featuredPost.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80"
                 />

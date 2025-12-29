@@ -105,6 +105,17 @@ class AppwriteService {
         }
     }
 
+    async getFileView(fileId) {
+        try {
+            return this.storage.getFileView(
+                config.appwriteBucketId,
+                fileId
+            );
+        } catch (error) {
+            throw error;
+        }
+    }
+
     async deleteFile(fileId) {
         try {
             return await this.storage.deleteFile(
