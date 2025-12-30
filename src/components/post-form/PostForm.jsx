@@ -31,10 +31,10 @@ export default function PostForm({ post }) {
 
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.user);
-    console.log("PostForm userData:", userData);
+    // console.log("PostForm userData:", userData);
 
     const submit = async (data) => {
-        console.log("Post form data:", data);
+        // console.log("Post form data:", data);
         if (post) {
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
@@ -58,7 +58,7 @@ export default function PostForm({ post }) {
                 alert("You must be logged in to create a post.");
                 return;
             }
-            console.log("userData:", userData);
+            // console.log("userData:", userData);
             if (!userData.userData.$id) {
                 alert("User ID is missing. Cannot create post. Please re-login.");
                 return;

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Twitter, Instagram, Linkedin, Heart, Mail } from 'lucide-react';
+import { Twitter, Instagram, Linkedin, Heart, Mail, Github } from 'lucide-react';
+import LeetcodeIcon from '../../assets/LeetcodeIcon.svg';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -50,17 +51,55 @@ export default function Footer() {
 
         {/* 3. Social Icons */}
         <div className="flex justify-center gap-6 mb-10">
-          <a href="#" className="p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-black hover:text-white transition-all duration-300">
-            <Twitter size={18} />
+          {/* <a 
+            href="https://leetcode.com/u/AbhijeetSoni08/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-black hover:text-white transition-all duration-300"
+          >
+            <LeetcodeIcon size={18} />
+          </a> */}
+          <a 
+            href="https://leetcode.com/u/AbhijeetSoni08/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-black hover:text-white transition-all duration-300"
+          >
+            <img 
+              src= {LeetcodeIcon}
+              alt="LeetCode Logo" 
+              className="w-[18px] h-[18px]"
+            />
           </a>
-          <a href="#" className="p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-black hover:text-white transition-all duration-300">
+          <a 
+            href="https://www.instagram.com/abhijeetsoni.08/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-black hover:text-white transition-all duration-300"
+          >
             <Instagram size={18} />
           </a>
-          <a href="#" className="p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-black hover:text-white transition-all duration-300">
+          <a 
+            href="https://www.linkedin.com/in/abhijeet-soni-44a8191a0/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-black hover:text-white transition-all duration-300"
+          >
             <Linkedin size={18} />
           </a>
-           <a href="#" className="p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-black hover:text-white transition-all duration-300">
+          <a 
+            href="mailto:abhijeetsoni@zohomail.in" 
+            className="p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-black hover:text-white transition-all duration-300"
+          >
             <Mail size={18} />
+          </a>
+          <a 
+            href="https://github.com/AbhijeetSoni08" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-black hover:text-white transition-all duration-300"
+          >
+            <Github size={18} />
           </a>
         </div>
 

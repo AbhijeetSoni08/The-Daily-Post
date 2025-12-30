@@ -18,7 +18,7 @@ function Login() {
             const session = await authService.login(data.email, data.password);
             if (session) {
                 const userData = await authService.getCurrentUser();
-                console.log("Login userData:", userData);
+                // console.log("Login userData:", userData);
                 if (userData && userData.emailVerification) {
                     dispatch(authLogin(userData));
                     navigate("/");

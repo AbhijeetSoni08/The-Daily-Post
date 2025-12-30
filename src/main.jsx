@@ -21,7 +21,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function AppRouter() {
   const isAuthenticated = useSelector(state => state.auth.status);
-  console.log("User is authenticated:", isAuthenticated);
+  // console.log("User is authenticated:", isAuthenticated);
 
   const router = createBrowserRouter([
     {

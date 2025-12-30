@@ -17,7 +17,7 @@ function PostCard({$id, title, featuredImage, author, publishedDate, category}) 
     }, [featuredImage]);
   return (
     <Link to = {`/post/${$id}`}>
-        <div className="border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+        <div className="border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
             {url && (
                 <img 
                     src={url}

@@ -13,18 +13,18 @@ import { setPosts, setError } from './store/postSlice'
 function App() {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
-  
+  const [postsFetched, setPostsFetched] = useState([]);
 
 
   useEffect(() => {
     appwriteService.listPosts().then((res) => {
+      setPostsFetched(res.rows);
       dispatch(setPosts(res.rows));
-      console.log("Fetched posts from Appwrite:", res.rows);
     }).catch((error) => {
       console.error("Error fetching posts from Appwrite:", error);
       dispatch(setError(error.message));
     }).finally(( ) => {
-      console.log("Finished fetching posts.");
+      // console.log("Finished fetching posts.");
     });
   },[])
 
@@ -32,10 +32,10 @@ function App() {
   const posts = useSelector((state) => state.posts.posts);
 
   if (postsLoading) {
-    console.log("Posts are still loading...");
+    // console.log("Posts are still loading...");
   } else {
-    console.log("Posts have been loaded.");
-    console.log("Posts:", posts);
+    // console.log("Posts have been loaded.");
+    // console.log("Posts:", posts);
   }
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function App() {
     .then((userData) => {
       if (userData && userData.emailVerification) {
         dispatch(login({userData}))
-        dispatch(setPosts(res.rows));
+        dispatch(setPosts(postsFetched));
       } else {
         dispatch(logout())
       }
