@@ -102,15 +102,19 @@ export default function PostForm({ post }) {
 
     const selectedCategory = watch("category");
     return (
-        <form onSubmit={handleSubmit((data) => {
-            // If 'other' is selected, use customCategory as category
-            if (data.category === "other" && data.customCategory) {
-                data.category = data.customCategory;
-            }
-            submit(data);
-        })} className="w-full flex flex-wrap">
-            <div className="w-full flex flex-wrap mb-6">
-                <div className="w-1/3 px-2">
+        <form
+            onSubmit={handleSubmit((data) => {
+                // If 'other' is selected, use customCategory as category
+                if (data.category === "other" && data.customCategory) {
+                    data.category = data.customCategory;
+                }
+                submit(data);
+            })}
+            className="w-full flex flex-wrap lg:flex-row flex-col"
+        >
+            <div className="w-full flex flex-wrap mb-6 lg:flex-row flex-col">
+                {/* Inputs and Button */}
+                <div className="lg:w-1/3 w-full px-2 order-1">
                     <Input
                         label="Title :"
                         placeholder="Title"
@@ -165,12 +169,22 @@ export default function PostForm({ post }) {
                         name="status"
                         {...register("status", { required: true })}
                     />
+                </div>
+                {/* RTE - Text Editor */}
+                <div className="lg:w-2/3 w-full px-2 order-2 mt-4 lg:mt-0">
+                    <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+                </div>
+                {/* Submit Button at the bottom on small screens */}
+                <div className="w-full px-2 order-3 mt-4 lg:hidden">
                     <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
                         {post ? "Update" : "Submit"}
                     </Button>
                 </div>
-                <div className="w-2/3 px-2">
-                    <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+                {/* Submit Button for large screens (keep original position) */}
+                <div className="w-full px-2 order-3 mt-4 hidden lg:block">
+                    <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+                        {post ? "Update" : "Submit"}
+                    </Button>
                 </div>
             </div>
         </form>
